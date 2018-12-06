@@ -1,27 +1,17 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>HTML5 Tetris</title>
-        <link rel='stylesheet' href='style.css' />
-  
-    <body>
-        <audio id="clearsound" src="sound/pop.ogg" preload="auto"></audio>
-        <canvas width='300' height='600'></canvas>
-        <button id="playbutton" onclick="playButtonClicked();">Play</button>
-        <script src='js/tetris.js'></script>
-        <script src='js/controller.js'></script>
-        <script src='js/render.js'></script>
-        <link href="https://fonts.googleapis.com/css?family=Roboto:100" rel="stylesheet">
+
+<head>
+  <title>Javascript Tetris</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100" rel="stylesheet">
   <link rel="stylesheet" href="css/main.css" />
   <link rel="stylesheet" href="css/media.css" />
   <link href="css/hover-min.css" rel="stylesheet">
   <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    </body>
-</html>
-  </head>
+</head>
 
-    <body onload="chargerPage();">
+<body onload="chargerPage();">
 
   <div class="container">
     <div class="item1">
@@ -42,3 +32,100 @@
           <a id="highscore-link">High Score</a>
         </div>
       </div>
+      <!--/home -->
+
+      <div id="tetris">
+        <div class="tetris-item">
+          <div id="menu">
+            <p>
+              <canvas id="upcoming"></canvas>
+            </p>
+            <p>HighScore
+              <span id="highscore-player">00000</span>
+            </p>
+            <p>Score
+              <span id="score">00000</span>
+            </p>
+            <p>Rows
+              <span id="rows">0</span>
+            </p>
+              
+            <p>
+              <audio id="sound" loop>
+                <source src="song/tetris.mp3" type="audio/mpeg" />
+              </audio>
+            </p>
+          </div>
+        </div>
+        <div class="tetris-item">
+          <canvas id="canvas" class="jeu">
+            Sorry, this example cannot be run because your browser does not support the &lt;canvas&gt; element
+          </canvas>
+        </div>
+
+      </div>
+      <!--/tetris -->
+
+      <div id="highscore" class="hide">
+        <h1 class="titre">High Score</h1>
+        <div class="highscore-list">
+          <div id="back-home">
+            < </div>
+              <div id="highscore-cookie"></div>
+              <button class="reset" onclick="resetCookie();">RESET</button>
+          </div>
+        </div>
+      </div>
+      <!--/highscore -->
+
+
+
+    </div>
+    <!--/item1 -->
+  </div>
+  <!--/container -->
+
+  <div id="menuResume" class="hide modal">
+    <div class="wrapper">
+      <h1>PAUSE</h1>
+      <div>
+        <button id="reprendre" class="hvr-sweep-to-right">CONTINUE</button>
+        <button id="abandonner" class="hvr-sweep-to-left">QUIT</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="menuLose" class="hide modal">
+    <div class="wrapper">
+      <h1>TRY AGAIN ?</h1>
+      <div>
+        <button id="retourMenu" class="hvr-sweep-to-right">BACK MENU</button>
+        <button id="recommencer" class="hvr-sweep-to-left">RESTART</button>
+        <p class="score-player">
+          Your score :
+          <span id="score-player"></span>
+        </p>
+        <div id="save-score">
+          <form>
+            <input type="text" name="scorePlayer" id="scorePlayer" placeholder="Pseudo" />
+            <input type="submit" onClick="saveScore();" value="SAVE" />
+          </form>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+
+
+
+
+
+  <script src="js/stats.js"></script>
+  <script src="js/functions.js"></script>
+  <script src="js/run.js"></script>
+  <script src="js/main.js"></script>
+
+</body>
+
+</html>
